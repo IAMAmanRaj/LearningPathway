@@ -1,29 +1,42 @@
 import React from 'react'
 import { Alert, Button,Card,Select } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {setBranch} from "../redux/Branch/branchSlice"
-import { current } from '@reduxjs/toolkit';
+
 const Home = () => {
     const navigate=useNavigate();
     
     const dispatch=useDispatch();
-    const currentBranch=useSelector((state) => state.branch);
+    const currentBranch=useSelector((state) => state.branch.value);
     const [showAlert,setShowAlert]=useState(false);
+
+const [formData,setFormData]=useState({});
+
+
+
     const handleTakeQuizClick = () => {
-        if (!currentBranch.value) {
+        
+        if (!currentBranch) {
+        
           setShowAlert(true);
+        
           return;
         }
+         
+         
         navigate('/interest'); // Navigate to the '/interest' path when the button is clicked
       };
     
 
       const handleBranchChange=(e)=>{
-        dispatch(setBranch(e.target.value));
-        setShowAlert(false);
-      };
+    
+          setFormData({...formData,category:e.target.value});
+      setShowAlert(false);
+      dispatch(setBranch(e.target.value));
+      
+        };
 
   return (
     <>
@@ -38,12 +51,12 @@ const Home = () => {
         </a>
         <p className="mb-2  font-semibold text-black dark:text-gray-400">Here is your learning pathway Quiz. Be Specific about your interests and likings. Decide today and Skill Up.</p>
         <p>Choose your Branch</p>
-        <Select
-       
-        className='py-1'
-          onChange={handleBranchChange}
-        required>
-<option value={null}>Select a Category</option>
+        < Select
+       className='py-1'
+       value={currentBranch===null? "":currentBranch}
+    onChange={handleBranchChange}
+        required >
+<option value=''>Select a Category</option>
             <option value="Computer Science">Computer Science</option>
             <option value="Electronics and Communication">Electronics and Communication</option>
             <option value="Electrical">Electrical</option>
