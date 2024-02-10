@@ -10,10 +10,10 @@ const Home = () => {
 
   return (
     <>
-     <div className="container flex flex-col pt-2 items-center h-screen">
-   <Card className='border-black w-[600px] h-[500px] border-4 '>
+     <div className="container flex flex-col pt-2 mx-auto h-screen">
+   <Card className='border-black mx-auto sm:w-[600px] sm:h-[600px] border-4 '>
     <a href="#">
-        <img className="h-[300px] mx-auto rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
+        <img className="h-[300px]  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
     </a>
     <div className="p-3">
         <a href="#">
