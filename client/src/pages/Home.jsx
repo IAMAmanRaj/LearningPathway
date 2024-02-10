@@ -4,12 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {setBranch} from "../redux/Branch/branchSlice"
-
+import { FaMoon, FaSun } from "react-icons/fa";
+import { toggleTheme } from "../redux/theme/themeSlice";
 const Home = () => {
     const navigate=useNavigate();
     
     const dispatch=useDispatch();
+    
     const currentBranch=useSelector((state) => state.branch.value);
+    const { theme } = useSelector((state) => state.theme);
     const [showAlert,setShowAlert]=useState(false);
 
 const [formData,setFormData]=useState({});
@@ -40,10 +43,19 @@ const [formData,setFormData]=useState({});
 
   return (
     <>
+         
      <div className="container flex flex-col pt-2 mx-auto h-screen">
-   <Card className='border-black mx-auto sm:w-[600px] sm:h-[650px] border-4 '>
+     <Button
+          className="absolute top-4 right-4 w-12 h-10 inline"
+          color="gray"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? <FaMoon /> : <FaSun />}
+        </Button>
+   <Card className='border-black mx-auto max-w-[600px] h-screen border-4 '>
     <a href="#">
-        <img className="h-[300px]  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
+        <img className="h-[300px] mx-auto  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
     </a>
     <div className="p-3">
         <a href="#">
