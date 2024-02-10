@@ -2,19 +2,29 @@ import React from 'react'
 import { Alert, Button,Card,Select } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import {useDispatch,useSelector} from 'react-redux';
+import {setBranch} from "../redux/Branch/branchSlice"
+import { current } from '@reduxjs/toolkit';
 const Home = () => {
     const navigate=useNavigate();
+    
+    const dispatch=useDispatch();
+    const currentBranch=useSelector((state) => state.branch);
     const [showAlert,setShowAlert]=useState(false);
     const handleTakeQuizClick = () => {
-        if(!formData.category || formData.category === "Uncategorized")
-        {
+        if (!currentBranch.value) {
           setShowAlert(true);
           return;
         }
         navigate('/interest'); // Navigate to the '/interest' path when the button is clicked
       };
-      const [formData,setFormData]=useState({});
-console.log(formData);
+    
+
+      const handleBranchChange=(e)=>{
+        dispatch(setBranch(e.target.value));
+        setShowAlert(false);
+      };
+
   return (
     <>
      <div className="container flex flex-col pt-2 mx-auto h-screen">
@@ -31,14 +41,9 @@ console.log(formData);
         <Select
        
         className='py-1'
-          onChange={(e)=>
-            {
-                setFormData({...formData,category:e.target.value});
-                setShowAlert(false);
-    }}
-   
-           required>
-<option value="Uncategorized">Select a Category</option>
+          onChange={handleBranchChange}
+        required>
+<option value={null}>Select a Category</option>
             <option value="Computer Science">Computer Science</option>
             <option value="Electronics and Communication">Electronics and Communication</option>
             <option value="Electrical">Electrical</option>
