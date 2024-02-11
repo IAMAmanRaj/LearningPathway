@@ -24,43 +24,85 @@ const Interest = () => {
     <>
    
     
-    <div className="relative h-56  sm:h-64 xl:h-80 2xl:h-96">
+    <div className="container flex flex-col gap-4 sm:gap-20 sm:p-8 mx-auto h-screen overflow-hidden">
     <Button
-          className="absolute z-10 top-4 right-4 w-12 h-10 inline"
+          className="absolute z-10 top-2 right-4 w-12 h-10 inline"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </Button>
-      <Carousel className='mb-12 pt-16 h-[120%] px-2' pauseOnHover slide={false} >
+      <Carousel className=' sm:h-[380px] lg:h-[480px] xl:h-[560px] 2xl:h-[640px] px-2' pauseOnHover slide={false} >
 
-        <div className=" flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+        <div className="container flex flex-col items-center  justify-center rounded-3xl h-[100%] px-4 pt-4 mt-4 gap-12 md:gap-28 bg-gray-400 dark:bg-gray-700 dark:text-white">
           
-          <div>
+         
             
-            <h1 className='text-5xl font-semibold'>
+            <h1 className=' text-4xl lg:text-5xl font-bold '>
           
               Are you serious about your branch ?.
-  <div className="flex flex-wrap gap-2">
-      <Button outline gradientDuoTone="purpleToBlue">
-        Purple to Blue
+              </h1>
+  <div className='flex mb-12 gap-28 sm:gap-8 md:gap-12'>
+      <Button className='' outline gradientDuoTone="purpleToBlue">
+       <span className='text-lg w-16'>Yes</span> 
       </Button>
       <Button outline gradientDuoTone="redToYellow">
-        Red to Yellow
+      <span className='text-lg w-16'>No</span> 
       </Button>
-    </div>
-            </h1>
-          </div>
+      </div>
+          
+         
         </div>
-        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-          Slide 2
+        <div className="flex flex-col items-center justify-center rounded-3xl  h-[100%] mt-4 gap-28  px-4 bg-gray-400 dark:bg-gray-700 dark:text-white">
+          
+        <h1 className='text-4xl lg:text-5xl font-bold '>
+          
+          Do you know the subjects in  ?.
+          </h1>
+<div className='flex gap-12'>
+  <Button className='' outline gradientDuoTone="purpleToBlue">
+   <span className='text-lg w-16'>Yes</span> 
+  </Button>
+  <Button outline gradientDuoTone="redToYellow">
+  <span className='text-lg w-16'>No</span> 
+  </Button>
+  </div>
         </div>
-        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-          Slide 3
+
+        <div className="flex flex-col items-center justify-center rounded-3xl  h-[100%] mt-4 gap-28  px-4 bg-gray-400 dark:bg-gray-700 dark:text-white">
+          
+        <h1 className='text-4xl lg:text-5xl font-bold '>
+          
+          Do you know the subjects in  ?.
+          </h1>
+<div className='flex gap-12'>
+  <Button className='' outline gradientDuoTone="purpleToBlue">
+   <span className='text-lg w-16'>Yes</span> 
+  </Button>
+  <Button outline gradientDuoTone="redToYellow">
+  <span className='text-lg w-16'>No</span> 
+  </Button>
+  </div>
         </div>
+        <div className="flex flex-col items-center justify-center rounded-3xl  h-[100%] mt-4 gap-28  px-4 bg-gray-400 dark:bg-gray-700 dark:text-white">
+          
+        <h1 className='text-4xl lg:text-5xl font-bold '>
+          
+          Do you know the subjects in  ?.
+          </h1>
+<div className='flex gap-12'>
+  <Button className='' outline gradientDuoTone="purpleToBlue">
+   <span className='text-lg w-16'>Yes</span> 
+  </Button>
+  <Button outline gradientDuoTone="redToYellow">
+  <span className='text-lg w-16'>No</span> 
+  </Button>
+  </div>
+        </div>
+        
       </Carousel>
-      <Timeline horizontal className='my-8 mx-2 rounded-lg px-4 py-4  dark:bg-gray-700 dark:text-white"'>
+      <Timeline horizontal className='  rounded-lg p-3  dark:bg-gray-700 dark:text-white'>
       <TimelineItem>
         <TimelinePoint />
         <TimelineContent>
@@ -70,7 +112,7 @@ const Interest = () => {
             Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order
             E-commerce & Marketing pages.
           </TimelineBody>
-          <Button color="gray">
+          <Button color="gray" outline>
             Learn More
             <HiArrowNarrowRight className="ml-2 h-3 w-3" />
           </Button>
