@@ -53,7 +53,7 @@ const [formData,setFormData]=useState({});
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </Button>
-   <Card className='border-black mx-auto max-w-[600px] h-screen border-4 '>
+   <Card className='border-black mt-16 mx-auto max-w-[600px] h-screen border-4 '>
     <a href="#">
         <img className="h-[300px] mx-auto  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
     </a>
