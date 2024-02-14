@@ -137,6 +137,8 @@ export default function ScoreReportCard (props){
                         outline
                         className='font-medium rounded-md text-sm  mb-2'
                     gradientDuoTone="pinkToOrange"
+                    disabled={props.question.id===props.quizLength?true:false}
+                    
                         >
                         Next
                         </Button>
