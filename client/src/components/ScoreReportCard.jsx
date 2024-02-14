@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Button } from 'flowbite-react';
+import {Chart as ChartJS} from 'chart.js/auto';
+import {Doughnut} from 'react-chartjs-2';
 export default function ScoreReportCard (props){
 
     const domainList = () => {
@@ -21,27 +23,32 @@ export default function ScoreReportCard (props){
         label: 'Your Overall Results',
         content: (
             <div className="tab-content p-3 flex flex-col sm:flex-row ">
-                <div className='w-12/12 sm:w-6/12 items-center justify-between mb-4 text-center space-y-4'>
-                    <h2 className='text-xl sm:pb-3 font-bold leading-none text-gray-900 dark:text-white'>
-                        Stats
-                    </h2>
-                    
-                    <div className='px-16'>
-                        <CircularProgressbar
-                           
-                            styles={buildStyles({
-                                textColor: "white",
-                                pathColor: "#0f766e",
-                                trailColor: "#374151",
-                            })}
-                        />
-                        
-                    </div>
+                <div className='w-12/12 sm:w-6/12  items-center justify-between mb-4 text-center space-y-4'>
+                  <Doughnut className='mx-auto'
+                  data={
+                    {
+                        labels:domainList().map((domain)=>domain),
+                        datasets:[
+                            {
+                                label:'Domain',
+                                data:domainList().map((domain)=>props.domainScore(domain)),
+                                backgroundColor:[
+                                    "rgba(43,63,229,0.8)",
+                                    "rgba(250,192,19,0.8)",
+                                    "rgba(253,135,135,0.8)",
+                                ],
+                                borderRadius:5,
+                            },
+                        ],
+                    }
+
+                  }
+                  />
                     
                 </div>
-                <div className='w-12/12 sm:w-6/12 items-center justify-between mb-4 text-center space-y-4'>
-                    <h2 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
-                        Score by Domain
+                <div className='w-12/12 sm:w-6/12 items-center justify-between mb-4 text-center  space-y-4'>
+                    <h2 className='text-3xl font-bold leading-none text-gray-900 dark:text-white'>
+                        Results
                     </h2>
                     <div className='px-5'>
                         {domainList().map((domain) => {

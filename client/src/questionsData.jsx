@@ -2,7 +2,7 @@
 const questions = [
     {
 		id: 1,
-		domain: '1. World History',
+		domain: 'Core',
 		questionText: 'Who painted the ceiling of the Sistine Chapel?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'Da Vinci'},
@@ -15,7 +15,7 @@ const questions = [
 	},
 	{
 		id: 2,
-		domain: '1. World History',
+		domain: 'Core',
 		questionText: 'In what year did the Norman Conquest of England occur?',
 		answerOptions: [
 			{ answerID: 'a', answerText: '55 BC'},
@@ -28,7 +28,7 @@ const questions = [
 	},
 	{
 		id: 3,
-		domain: '1. World History',
+		domain: 'Core',
 		questionText: 'Who was the founder and first khagan of the Mongol Empire?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'Tolui'},
@@ -41,7 +41,7 @@ const questions = [
 	},
 	{
 		id: 4,
-		domain: '2. U.S. History',
+		domain: 'Software',
 		questionText: 'Who was the first U.S. president to serve only a single term?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'George Washington'},
@@ -54,7 +54,7 @@ const questions = [
 	},
 	{
 		id: 5,
-		domain: '2. U.S. History',
+		domain: 'Software',
 		questionText: 'What is the capital of Texas?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'Austin'},
@@ -67,7 +67,7 @@ const questions = [
 	},
 	{
 		id: 6,
-		domain: '2. U.S. History',
+		domain: 'Software',
 		questionText: 'The Wright brothers, Orville and William, are generally credited for inventing what?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'the microwave oven'},
@@ -80,7 +80,7 @@ const questions = [
 	},
 	{
 		id: 7,
-		domain: '3. Technology',
+		domain: 'Consultancy',
 		questionText: 'Who was the only person to win a Nobel Prize in two scientific fields?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'Marie Curie'},
@@ -93,7 +93,7 @@ const questions = [
 	},
 	{
 		id: 8,
-		domain: '3. Technology',
+		domain: 'Consultancy',
 		questionText: 'In automobiles, carburetors were largely replaced by which technology?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'alternators'},
@@ -106,7 +106,7 @@ const questions = [
 	},
 	{
 		id: 9,
-		domain: '3. Technology',
+		domain: 'Consultancy',
 		questionText: 'What technology allowed Marty McFly to travel back in time in 1985?',
 		answerOptions: [
 			{ answerID: 'a', answerText: 'warp drive'},
