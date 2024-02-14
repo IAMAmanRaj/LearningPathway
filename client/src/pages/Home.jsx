@@ -53,9 +53,9 @@ const [formData,setFormData]=useState({});
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </Button>
-   <Card className='border-black mt-16 mx-auto max-w-[600px] h-screen border-4 '>
+   <Card className='border-black mt-16 mx-auto max-w-[600px] border-4 '>
     <a href="#">
-        <img className="h-[300px] mx-auto  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
+        <img className="h-[300px] object-cover mx-auto  rounded-b-2xl " src="../images/growtika-PYyPeCHonnc-unsplash.jpg" alt="" />
     </a>
     <div className="p-3">
         <a href="#">
@@ -79,7 +79,7 @@ const [formData,setFormData]=useState({});
             <option value="Biotechnology">Biotechnology</option>
           </Select>
           {showAlert && <Alert className="my-2" color='failure'>Branch not selected</Alert>}
-        <Button className='mt-4 mb-2 ' onClick={handleTakeQuizClick} gradientDuoTone="cyanToBlue" outline>
+        <Button className='mt-4  ' onClick={handleTakeQuizClick} gradientDuoTone="cyanToBlue" outline>
             Take Quiz
           </Button>
     </div>

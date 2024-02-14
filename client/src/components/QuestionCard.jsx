@@ -12,8 +12,8 @@ const QuestionCard = ({
     handleProgressToggle,
 }) => {
     return (
-        <div className="flex justify-center border-2  border-zinc-800 rounded-md dark:border-slate-200 ">
-            <div className='w-full max-w-3xl p-4 bg-slate-200 border border-gray-200 rounded-md shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
+        <div className="flex justify-center  rounded-md dark:border-slate-200 ">
+            <div className='w-full max-w-3xl p-4 bg-slate-200 border-gray-200 rounded-md shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
                 <div className='flex items-center justify-between mb-2'>
                     <h2 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
                     Question {question.id} of {quizLength}
@@ -62,6 +62,7 @@ const QuestionCard = ({
                             outline
                             className='font-medium rounded-md text-sm  mb-2'
                         gradientDuoTone="cyanToBlue"
+                        disabled={question.id===quizLength?true:false}
                             >
                             Next
                             </Button>
@@ -74,7 +75,8 @@ const QuestionCard = ({
                     
                 <Button onClick={handleClearAnswers} type='button' outline
                             className='font-medium rounded-md text-sm  mb-2'
-                        gradientDuoTone="pinkToOrange">
+                        gradientDuoTone="pinkToOrange"
+                        disabled={localStorage.length === 0}>
                     Clear My Answers
                     </Button>
                     
