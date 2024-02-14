@@ -12,7 +12,7 @@ export default function ScoreReportCard (props){
         return Array.from(domainNumbers);
     };
 
-    const scorePercentage = Math.round(props.score/props.quizLength*100)
+    
 
     const [currentTab, setCurrentTab] = useState('tab1');
     const tabList = [
@@ -23,22 +23,19 @@ export default function ScoreReportCard (props){
             <div className="tab-content p-3 flex flex-col sm:flex-row ">
                 <div className='w-12/12 sm:w-6/12 items-center justify-between mb-4 text-center space-y-4'>
                     <h2 className='text-xl sm:pb-3 font-bold leading-none text-gray-900 dark:text-white'>
-                        Total Score
+                        Stats
                     </h2>
                     
                     <div className='px-16'>
                         <CircularProgressbar
-                            value={scorePercentage}
-                            text={scorePercentage+'%'}
+                           
                             styles={buildStyles({
                                 textColor: "white",
                                 pathColor: "#0f766e",
                                 trailColor: "#374151",
                             })}
                         />
-                        <h3 className='text-xl leading-none text-gray-900 dark:text-white py-3'>
-                            {props.score} of {props.quizLength} Correct
-                        </h3>
+                        
                     </div>
                     
                 </div>
@@ -81,16 +78,13 @@ export default function ScoreReportCard (props){
                             key={answerOption.answerID}
                             
                             className={
-                                //answer was selected and is not correct
-                                props.selectedAnswerID === answerOption.answerID && answerOption.answerID !== props.question.correctResponse ? 
-                                'w-full text-left font-semibold text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-md text-base px-5 py-2.5 mr-2 mb-2 dark:bg-red-600/50 dark:text-white dark:border-red-800/50 dark:focus:ring-red-600/50'
+                                //answer was selected
+                                props.selectedAnswerID === answerOption.answerID ? 
+                                'w-full text-left font-semibold text-gray-900 bg-green-400 border-[2px] border-black dark:border-slate-200 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-md text-base px-5 py-2.5 mr-2 mb-2'
                                 : 
-                                //answer was selected and is correct
-                                props.selectedAnswerID === answerOption.answerID && answerOption.answerID === props.question.correctResponse ?
-                                'w-full text-left font-semibold text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-md text-base px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:text-white dark:border-teal-600 dark:focus:ring-teal-500'
-                                :
+                               
                                 //everything else
-                                'w-full text-left font-thin text-gray-900 border border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-md text-base px-5 py-2.5 mr-2 mb-2 dark:border-gray-600 dark:text-gray-100 dark:focus:ring-gray-800'
+                                'w-full text-left font-thin text-gray-900 border bg-slate-300 border-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-md text-base px-5 py-2.5 mr-2 mb-2 dark:border-gray-600 dark:text-gray-900 dark:focus:ring-gray-800'
                             }
                             >
                             {answerOption.answerText}
@@ -98,13 +92,11 @@ export default function ScoreReportCard (props){
                     ))}
 
 
-                    {props.selectedAnswerID === props.question.correctResponse ? 
-                    <p className="my-3 text-gray-800 text-base dark:text-teal-500"> <FontAwesomeIcon icon={faCheck} style={{color: "#009688",}} /> You answered this question correctly.</p>
-                    : 
-                    props.selectedAnswerID !== props.question.correctResponse && props.selectedAnswerID !== null ?
-                    <p className="my-3 text-gray-800 text-base dark:text-red-600"> <FontAwesomeIcon icon={faXmark} style={{color: "#DC3545",}} /> You answered this question incorrectly.</p>
-                    : 
-                    <p className="my-3 text-gray-800 text-base dark:text-red-600"> <FontAwesomeIcon icon={faXmark} style={{color: "#DC3545",}} /> You did not answer this question.</p>
+                    {props.selectedAnswerID === null ? 
+                     <p className="my-3 text-gray-800 text-base dark:text-red-600"> <FontAwesomeIcon icon={faXmark} style={{color: "#DC3545",}} /> You did not answer this question.</p>
+                   
+                    : <p className="my-3 text-gray-800 text-base dark:text-teal-500"> <FontAwesomeIcon icon={faCheck} style={{color: "#009688",}} /> Your response was recorded successfully.</p>
+                   
                     }
                     
                     <p className='font-bold text-gray-800 text-base dark:text-gray-300 leading-tight'>Explanation<br/>

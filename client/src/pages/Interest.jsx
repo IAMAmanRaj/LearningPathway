@@ -124,7 +124,7 @@ onClick={() => dispatch(toggleTheme())}
                     :
                     showScore? (
                     <ScoreReportCard
-                    score={score}	
+                    	
                     quizLength={questions.length}
                     questions={questions}
                     domainScore={domainScore}
