@@ -44,7 +44,7 @@ const [formData,setFormData]=useState({});
   return (
     <>
          
-     <div className="container flex flex-col pt-2 mx-auto h-screen">
+     <div className="container  flex flex-col pt-2 mx-auto h-full">
      <Button
           className="absolute top-4 right-4 w-12 h-10 inline"
           color="gray"

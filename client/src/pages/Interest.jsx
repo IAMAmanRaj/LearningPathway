@@ -4,7 +4,6 @@ import questions from '../questionsData';
 import QuestionCard from '../components/QuestionCard';
 import ScoreReportCard from '../components/ScoreReportCard';
 import ProgressCard from '../components/ProgressCard';
-import Footer from '../components/Footer';
 
 import {Button} from 'flowbite-react';
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -112,7 +111,7 @@ onClick={() => dispatch(toggleTheme())}
 {theme === "light" ? <FaMoon /> : <FaSun />}
 </Button>
             
-            <main className="p-3 mt-10  flex-grow items-center justify-center">
+            <main className="p-4  mt-14 bg-slate-700 dark:bg-slate-700 rounded-t-2xl  flex-grow items-center justify-center">
                 <div className="p-3">
                     {
                     showProgress? (
