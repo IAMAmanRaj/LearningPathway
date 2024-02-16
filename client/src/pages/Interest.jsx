@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import questions from '../questionsData';
+
 
 import QuestionCard from '../components/QuestionCard';
 import ScoreReportCard from '../components/ScoreReportCard';
@@ -9,6 +9,9 @@ import {Button} from 'flowbite-react';
 import { FaMoon, FaSun } from "react-icons/fa";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import {useDispatch,useSelector} from 'react-redux';
+import {motion as m} from "framer-motion";
+
+
 export default function Interest() {
   const { theme } = useSelector((state) => state.theme);
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -17,6 +20,352 @@ export default function Interest() {
     const [showProgress, setShowProgress] = useState(false);
     const [score, setScore] = useState(0);
 const dispatch=useDispatch();
+const currentBranch=useSelector((state) => state.branch.value);
+
+const questions = [];
+
+if (currentBranch === "Computer Science") {
+    questions.push(
+        {
+            id: 1,
+            domain: 'Software',
+            questionText:  `Having fun with the subjects taught in ${currentBranch}?`,
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `The language of 0's and 1's , this was asked to let us decide whether you are made for software or not !`,
+        },
+        {
+            id: 2,
+            domain: 'Software',
+            questionText: 'Do you enjoy problem-solving and critical thinking?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `If you're good at problem solving , you are already ahead of a majority in programming`,
+        },
+        {
+            id: 3,
+            domain: 'Software',
+            questionText: 'Do You find programming Interesting ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `Programming helps in developing intuitions and logic and makes you a better Problem Solver !`,
+        },
+        {
+            id: 4,
+            domain: 'Software',
+            questionText: 'Have you ever done Coding ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `With time it will get more clear whether you like it or not`,
+        },
+        {
+            id: 5,
+            domain: 'Software',
+            questionText: 'Do You find programming difficult ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'b',
+            questionRationale: `If you are not feeling like doing it , maybe trying something else will work for now !`,
+        },
+        {
+            id: 6,
+            domain: 'Software',
+            questionText: 'Do You want to give more time to it in future ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `With time it will get more clear whether you like it or not`,
+        },
+        {
+            id: 7,
+            domain: 'Consultancy',
+            questionText: 'Have you ever thought about exploring the field of consultancy?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+   
+                { answerID: 'c', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `Consultancy is a domain which makes you understand market in a better way ! A good business man is a good Consultant as well`,
+        },
+        {
+            id: 8,
+            domain: 'Consultancy',
+            questionText: 'Have you got interest in Sales and Marketing ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+          
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `Consultancy makes you understand market in a better way !`,
+        },
+       
+        
+        {
+            id: 9,
+            domain: 'Consultancy',
+            questionText: ' Can you think of scenarios where consulting services could help solve problems or achieve goals?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yeah'},
+                
+                { answerID: 'b', answerText: 'Nope'}
+            ],
+            correctResponse:'a',
+            questionRationale: `Your Ideas can change the whole game in Consultancy !`,
+        },
+{
+            id: 10,
+            domain: 'Consultancy',
+            questionText: 'Have you ever considered a career path that involves helping businesses improve and grow?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse:'a',
+            questionRationale: `This lets us know how passionate you are for this Consultancy domain !`,
+        },
+       
+        {
+            id: 11,
+            domain: 'Consultancy',
+            questionText: ' Would you like to develop your communication and teamwork skills further?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse:'a',
+            questionRationale: `Communication and Team Skills are a true Game Changer !`,
+        },
+
+        
+    );
+} else{
+    questions.push(
+        {
+            id: 1,
+            domain: 'Core',
+            questionText: `Do you like the subjects of ${currentBranch}?`,
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'},
+               
+            ],
+            correctResponse: 'a',
+            questionRationale: `Developing Interest for something takes time. Don't worry we are here to guide you`,
+        },
+        {
+            id: 2,
+            domain: 'Core',
+            questionText: 'Do you enjoy solving practical problems and applying scientific principles to real-world challenges?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `This is important , when you learn things , you should be able to apply them !`,
+        },
+        {
+            id: 3,
+            domain: 'Core',
+            questionText: 'Would you like to delve deeper into the core principles of engineering to gain a better understanding of the world around you? ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `Core is all about how deeply you understand the scenarios involved in engineering`
+        },
+        {
+            id: 4,
+            domain: 'Core',
+            questionText: 'Do you enjoy using logical reasoning and critical thinking to tackle engineering challenges and overcome obstacles?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+
+                { answerID: 'c', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `If you're headed to solve engineering problems , Core Domain is for you !`,
+        },
+        
+        {
+            id: 5,
+            domain: 'Software',
+            questionText:  `Having fun with the subjects taught in ${currentBranch}?`,
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `The language of 0's and 1's , this was asked to let us decide whether you are made for software or not !`,
+        },
+        {
+            id: 6,
+            domain: 'Software',
+            questionText: 'Do you enjoy problem-solving and critical thinking?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `If you're good at problem solving , you are already ahead of a majority in programming`,
+        },
+        {
+            id: 7,
+            domain: 'Software',
+            questionText: 'Do You find programming Interesting ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `Programming helps in developing intuitions and logic and makes you a better Problem Solver !`,
+        },
+        {
+            id: 8,
+            domain: 'Software',
+            questionText: 'Have you ever done Coding ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `With time it will get more clear whether you like it or not`,
+        },
+        {
+            id: 9,
+            domain: 'Software',
+            questionText: 'Do You find programming difficult ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'b',
+            questionRationale: `If you are not feeling like doing it , maybe trying something else will work for now !`,
+        },
+        {
+            id: 10,
+            domain: 'Software',
+            questionText: 'Do You want to give more time to it in future ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                { answerID: 'b', answerText: 'No'}
+
+            ],
+            correctResponse: 'a',
+            questionRationale: `With time it will get more clear whether you like it or not`,
+        },
+        {
+            id: 11,
+            domain: 'Consultancy',
+            questionText: 'Have you ever thought about exploring the field of consultancy?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+   
+                { answerID: 'c', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `Consultancy is a domain which makes you understand market in a better way ! A good business man is a good Consultant as well`,
+        },
+        {
+            id: 12,
+            domain: 'Consultancy',
+            questionText: 'Have you got interest in Sales and Marketing ?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+          
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse: 'a',
+            questionRationale: `Consultancy makes you understand market in a better way !`,
+        },
+       
+        
+        {
+            id: 13,
+            domain: 'Consultancy',
+            questionText: ' Can you think of scenarios where consulting services could help solve problems or achieve goals?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yeah'},
+                
+                { answerID: 'b', answerText: 'Nope'}
+            ],
+            correctResponse:'a',
+            questionRationale: `Your Ideas can change the whole game in Consultancy !`,
+        },
+{
+            id: 14,
+            domain: 'Consultancy',
+            questionText: 'Have you ever considered a career path that involves helping businesses improve and grow?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse:'a',
+            questionRationale: `This lets us know how passionate you are for this Consultancy domain !`,
+        },
+       
+        {
+            id: 15,
+            domain: 'Consultancy',
+            questionText: ' Would you like to develop your communication and teamwork skills further?',
+            answerOptions: [
+                { answerID: 'a', answerText: 'Yes'},
+                
+                { answerID: 'b', answerText: 'No'}
+            ],
+            correctResponse:'a',
+            questionRationale: `Communication and Team Skills are a true Game Changer !`,
+        },
+
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
     const handleAnswerOptionClick = (selectedAnswerID) => {
         localStorage.setItem(`question_${questions[currentQuestion].id}`, selectedAnswerID);
         setSelectedAnswerID(selectedAnswerID);
@@ -101,7 +450,10 @@ const dispatch=useDispatch();
     }
 
 	return (
-        <div className="flex flex-col h-screen">
+        <m.div initial={{y:"100%"}} animate={{y:"0%"}}
+        transition={{duration:0.75,ease:'easeOut'}}
+         className="flex flex-col h-screen">
+    
           <Button
 className="absolute z-10 top-2 right-[10px] w-12 h-10 inline"
 color="gray"
@@ -158,7 +510,7 @@ onClick={() => dispatch(toggleTheme())}
         <p className="font-light text-gray-500 md:text-lg xl:text-xl dark:text-gray-400">Our Enterprise administrators are performing scheduled maintenance.</p>
     </div>
 </section>
-        </div>
+        </m.div>
 	);
 }
 

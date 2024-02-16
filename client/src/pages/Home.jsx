@@ -6,6 +6,8 @@ import {useDispatch,useSelector} from 'react-redux';
 import {setBranch} from "../redux/Branch/branchSlice"
 import { FaMoon, FaSun } from "react-icons/fa";
 import { toggleTheme } from "../redux/theme/themeSlice";
+
+import {motion as m} from "framer-motion";
 const Home = () => {
     const navigate=useNavigate();
     
@@ -42,7 +44,10 @@ const [formData,setFormData]=useState({});
         };
 
   return (
-    <>
+    <m.div
+   initial={{y:"100%"}} animate={{y:"0%"}}
+    transition={{duration:0.75,ease:'easeOut'}}
+  >
          
      <div className="container  flex flex-col pt-2 mx-auto h-full">
      <Button
@@ -96,7 +101,7 @@ const [formData,setFormData]=useState({});
 
 </div>
 
-    </>
+</m.div>
   )
 }
 

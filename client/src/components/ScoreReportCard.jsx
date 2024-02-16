@@ -117,7 +117,7 @@ export default function ScoreReportCard (props){
                         type='button'
                         outline
                         className='font-medium rounded-md text-sm  mb-2'
-
+                        disabled={props.question.id===1}
                         >
                         First
                         </Button>
@@ -127,6 +127,7 @@ export default function ScoreReportCard (props){
                          outline
                             className='font-medium rounded-md text-sm  mb-2'
                         gradientDuoTone="pinkToOrange"
+                        disabled={props.question.id===1}
                         >
                         Prev
                         </Button>
@@ -146,7 +147,7 @@ export default function ScoreReportCard (props){
                         type='button'
                         outline
                         className='font-medium rounded-md text-sm  mb-2'
-
+                        disabled={props.question.id===props.quizLength?true:false}
                         >
                         Last
                         </Button>

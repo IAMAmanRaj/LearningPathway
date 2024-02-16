@@ -3,10 +3,10 @@ const questions = [
     {
 		id: 1,
 		domain: 'Core',
-		questionText: 'Who painted the ceiling of the Sistine Chapel?',
+		questionText: 'Have you ever done Coding ?',
 		answerOptions: [
-			{ answerID: 'a', answerText: 'Da Vinci'},
-			{ answerID: 'b', answerText: 'Correggio'},
+			{ answerID: 'a', answerText: 'No'},
+			{ answerID: 'b', answerText: 'Little Bit'},
 			{ answerID: 'c', answerText: 'Michelangelo'},
 			{ answerID: 'd', answerText: 'Raphael'},
 		],
